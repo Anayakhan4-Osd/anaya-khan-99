@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Anaya's professional portfolio — BBA projects, salary sheet and Principles of Marketing assignment.">
+<title>Anaya's Portfolio</title>
+<style>
+:root {
+  --bg:#07111f; --surface:#0d1b2e; --surface2:#11243b; --text:#edf5ff; --muted:#9fb2c8;
+  --line:rgba(255,255,255,.11); --accent:#67e8f9; --accent2:#a78bfa; --good:#86efac;
+  --shadow:0 24px 80px rgba(0,0,0,.28); --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 12% 10%,rgba(103,232,249,.12),transparent 28rem),
+ radial-gradient(circle at 88% 22%,rgba(167,139,250,.12),transparent 28rem),var(--bg);
+ color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;z-index:50;top:16px;left:50%;transform:translateX(-50%);width:min(1100px,calc(100% - 28px));
+ padding:10px 14px;border:1px solid var(--line);background:rgba(7,17,31,.72);backdrop-filter:blur(18px);
+ border-radius:999px;box-shadow:var(--shadow);display:flex;align-items:center;gap:8px}
+.brand{font-weight:800;letter-spacing:.04em;margin-right:auto;padding:8px 12px}
+nav a{padding:8px 12px;border-radius:999px;color:var(--muted);font-size:.92rem}
+nav a:hover{background:rgba(255,255,255,.08);color:var(--text)}
+main{width:min(1180px,calc(100% - 32px));margin:auto}
+.hero{min-height:88vh;display:grid;align-items:center;padding:120px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:36px;align-items:end}
+.kicker{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--accent);background:rgba(103,232,249,.06);font-size:.84rem;font-weight:700}
+h1{font-size:clamp(3.1rem,8vw,7rem);line-height:.92;letter-spacing:-.06em;margin:22px 0}
+.gradient{background:linear-gradient(110deg,var(--text),var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:720px;color:var(--muted);font-size:1.08rem}
+.hero-card{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:var(--shadow)}
+.stat{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line)}
+.stat:last-child{border-bottom:0}
+.stat span:first-child{color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);font-weight:700}
+.btn.primary{background:var(--text);color:#07111f}
+.btn:hover{transform:translateY(-2px);transition:.2s}
+section.block{padding:78px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:26px}
+.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.04em;margin:7px 0}
+.sub{color:var(--muted);max-width:680px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{position:relative;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.045);box-shadow:0 12px 40px rgba(0,0,0,.12);overflow:hidden;transition:.25s}
+.card:before{content:"";position:absolute;inset:-2px;background:linear-gradient(120deg,transparent,rgba(103,232,249,.13),transparent);transform:translateX(-100%);transition:.6s}
+.card:hover{transform:translateY(-7px);border-color:rgba(103,232,249,.35)}
+.card:hover:before{transform:translateX(100%)}
+.icon{font-size:2rem}
+.card h3{margin:13px 0 6px;font-size:1.2rem}
+.card p,.card li{color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.tag{font-size:.75rem;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.07);color:#cbd8e8}
+.project{display:grid;grid-template-columns:.25fr 1fr;gap:22px;align-items:start}
+.project-no{font-size:3rem;font-weight:900;color:rgba(103,232,249,.3);line-height:1}
+.project-body{border-left:1px solid var(--line);padding-left:24px}
+.project-body h3{font-size:1.65rem;margin:0 0 12px}
+.callout{margin:18px 0;padding:17px 19px;border:1px solid rgba(103,232,249,.2);background:rgba(103,232,249,.055);border-radius:18px}
+ul{padding-left:22px}
+.compare{overflow:auto;border:1px solid var(--line);border-radius:18px;margin-top:18px}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:12px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:rgba(255,255,255,.07);color:#dce8f5;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em}
+td{color:var(--muted)}
+.question{cursor:pointer;display:flex;justify-content:space-between;gap:15px;align-items:center}
+.question .plus{font-size:1.5rem;color:var(--accent);transition:.2s}
+details[open] .plus{transform:rotate(45deg)}
+details{border:1px solid var(--line);border-radius:20px;padding:0 20px;margin:14px 0;background:rgba(255,255,255,.035)}
+summary{list-style:none;padding:19px 0;font-weight:800}
+summary::-webkit-details-marker{display:none}
+.answer{padding:0 0 20px;color:var(--muted)}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.meta div{padding:15px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.04)}
+.meta small{display:block;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+.meta strong{display:block;margin-top:4px}
+#topBtn{position:fixed;right:18px;bottom:18px;z-index:40;display:none;border:1px solid var(--line);background:rgba(7,17,31,.82);color:var(--text);border-radius:50%;width:46px;height:46px;cursor:pointer}
+.search{width:100%;padding:14px 16px;border-radius:15px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);outline:none}
+.search:focus{border-color:rgba(103,232,249,.55)}
+.pdf-page{margin:18px 0;padding:22px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.025)}
+.page-label{font-size:.73rem;color:var(--accent);font-weight:800;letter-spacing:.12em;margin-bottom:10px}
+pre{white-space:pre-wrap;font:inherit;color:var(--muted);margin:0}
+footer{padding:60px 0 80px;color:var(--muted);border-top:1px solid var(--line)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:850px){
+ nav a:not(.brand){display:none}
+ .hero-grid,.cards,.project{grid-template-columns:1fr}
+ .meta{grid-template-columns:repeat(2,1fr)}
+ .project-body{border-left:0;padding-left:0}
+ .hero{min-height:auto;padding-top:125px}
+}
+@media(max-width:520px){
+ main{width:min(100% - 22px,1180px)}
+ section.block{padding:55px 0}
+ .meta{grid-template-columns:1fr}
+ .hero h1{font-size:3.4rem}
+}
+</style>
+</head>
+<body>
+<nav>
+<a class="brand" href="#home">ANAYA<span class="gradient">.</span></a>
+<a href="#about">About</a><a href="#projects">Projects</a><a href="#marketing">Marketing</a><a href="#source">Source</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+<div class="hero-grid">
+<div class="reveal">
+<span class="kicker">BBA • PROJECT PORTFOLIO</span>
+<h1>Anaya's <span class="gradient">Portfolio</span></h1>
+<p>A polished presentation of the work contained in the supplied 12-page PDF, including an Open Ended Lab salary sheet and a Principles of Marketing assignment on Shan Foods.</p>
+<div class="btns">
+<a class="btn primary" href="#projects">Explore projects →</a>
+<a class="btn" href="#source">View full source content</a>
+</div>
+</div>
+<div class="hero-card reveal">
+<div class="stat"><span>Academic program</span><strong>BBA</strong></div>
+<div class="stat"><span>Marketing brand</span><strong>Shan Foods</strong></div>
+<div class="stat"><span>Marketing subject</span><strong>Principles of Marketing</strong></div>
+<div class="stat"><span>PDF pages</span><strong>12</strong></div>
+</div>
+</div>
+</section>
+
+<section class="block" id="about">
+<div class="section-head reveal"><div><div class="eyebrow">Profile</div><h2>What’s inside</h2></div></div>
+<div class="cards">
+<div class="card reveal"><div class="icon">▦</div><h3>Salary Sheet</h3><p>Open Ended Lab (Project) — Salary Sheet, including employee IDs, salaries, allowances, overtime, deductions and net salary values.</p><div class="tags"><span class="tag">Excel-style project</span><span class="tag">20 employees</span></div></div>
+<div class="card reveal"><div class="icon">◈</div><h3>Brand Positioning</h3><p>Marketing analysis of Shan Foods (Shan Masala), covering product position, competitive advantages, positioning strategy, effective positioning principles and positioning errors.</p><div class="tags"><span class="tag">Shan Foods</span><span class="tag">Marketing</span></div></div>
+<div class="card reveal"><div class="icon">↗</div><h3>Interactive Format</h3><p>Responsive navigation, animated cards, expandable question sections, searchable full source text and a responsive salary table turn the source document into a web experience.</p><div class="tags"><span class="tag">Responsive</span><span class="tag">Single HTML</span></div></div>
+</div>
+</section>
+
+<section class="block" id="projects">
+<div class="section-head reveal"><div><div class="eyebrow">Selected work</div><h2>Projects</h2><p class="sub">The original content is retained; the presentation has been reorganized into an interactive portfolio.</p></div></div>
+
+<div class="card reveal" style="margin-bottom:18px">
+<h3>01 — Open Ended Lab (Project): Salary Sheet</h3>
+<p>The first page of the PDF contains the salary-sheet project. The table below preserves the employee data visible in the source.</p>
+<div class="compare">
+<table>
+<thead><tr>
+<th>S.No</th><th>Employee ID</th><th>Name</th><th>Designation</th><th>Basic Salary</th><th>Dearance Allowance (5%)</th><th>House Rent Allowance 20%</th><th>Over Time Hours</th><th>Over Time Salary</th><th>Gross Salary</th><th>Provident Fund</th><th>Employee State Insurance</th><th>Total Dedication</th><th>Net Salary</th>
+</tr></thead>
+<tbody><tr><td>1</td><td>101</td><td>SANA</td><td>15000</td><td>750</td><td>3000</td><td>10</td><td>###################</td><td>19471</td><td>1890</td><td>146.0336538</td><td>2036.033654</td><td>17435</td></tr><tr><td>2</td><td>102</td><td>SHEHNAZ</td><td>18000</td><td>360</td><td>3600</td><td>20</td><td>###################</td><td>23691</td><td>2203.2</td><td>0</td><td>2203.2</td><td>21488</td></tr><tr><td>3</td><td>103</td><td>SHEERAZ</td><td>30000</td><td>600</td><td>6000</td><td>5</td><td>###################</td><td>37321</td><td>3672</td><td>0</td><td>3672</td><td>33649</td></tr><tr><td>4</td><td>104</td><td>SANAIA</td><td>40000</td><td>800</td><td>8000</td><td>7</td><td>###################</td><td>50146</td><td>4896</td><td>0</td><td>4896</td><td>45250</td></tr><tr><td>5</td><td>105</td><td>NOREEN</td><td>50000</td><td>1000</td><td>10000</td><td>8</td><td>###################</td><td>62923</td><td>6120</td><td>0</td><td>6120</td><td>56803</td></tr><tr><td>6</td><td>106</td><td>SHAREEKA</td><td>20000</td><td>400</td><td>4000</td><td>10</td><td>###################</td><td>25362</td><td>2448</td><td>0</td><td>2448</td><td>22914</td></tr><tr><td>7</td><td>107</td><td>ALI</td><td>12000</td><td>240</td><td>2400</td><td>3</td><td>###################</td><td>14813</td><td>1468.8</td><td>111.0980769</td><td>1579.898077</td><td>13233</td></tr><tr><td>8</td><td>108</td><td>SUHANA</td><td>5000</td><td>100</td><td>1000</td><td>7</td><td>###################</td><td>6268</td><td>612</td><td>47.01201923</td><td>659.0120192</td><td>5609</td></tr><tr><td>9</td><td>109</td><td>MEHNAZ</td><td>4000</td><td>80</td><td>800</td><td>9</td><td>###################</td><td>5053</td><td>489.6</td><td>37.89807692</td><td>527.4980769</td><td>4526</td></tr><tr><td>10</td><td>110</td><td>OMAIMA</td><td>23000</td><td>460</td><td>4600</td><td>21</td><td>###################</td><td>30382</td><td>2815.2</td><td>0</td><td>2815.2</td><td>27567</td></tr><tr><td>11</td><td>111</td><td>HIRA</td><td>40000</td><td>800</td><td>8000</td><td>9</td><td>###################</td><td>50531</td><td>4896</td><td>0</td><td>4896</td><td>45635</td></tr><tr><td>12</td><td>112</td><td>TAHIR</td><td>60000</td><td>1200</td><td>12000</td><td>5</td><td>###################</td><td>74642</td><td>7344</td><td>0</td><td>7344</td><td>67298</td></tr><tr><td>13</td><td>113</td><td>TASLEEMA</td><td>70000</td><td>1400</td><td>14000</td><td>4</td><td>###################</td><td>86746</td><td>8568</td><td>0</td><td>8568</td><td>78178</td></tr><tr><td>14</td><td>114</td><td>ADINA</td><td>80000</td><td>1600</td><td>16000</td><td>2</td><td>###################</td><td>98369</td><td>9792</td><td>0</td><td>9792</td><td>88577</td></tr><tr><td>15</td><td>115</td><td>SHOAB</td><td>90000</td><td>1800</td><td>18000</td><td>8</td><td>###################</td><td>113262</td><td>11016</td><td>0</td><td>11016</td><td>102246</td></tr><tr><td>16</td><td>116</td><td>PARVEEN</td><td>14000</td><td>280</td><td>2800</td><td>9</td><td>###################</td><td>17686</td><td>1713.6</td><td>132.6432692</td><td>1846.243269</td><td>15840</td></tr><tr><td>17</td><td>117</td><td>BUSHRA</td><td>11000</td><td>220</td><td>2200</td><td>12</td><td>###################</td><td>14055</td><td>1346.4</td><td>105.4096154</td><td>1451.809615</td><td>12603</td></tr><tr><td>18</td><td>118</td><td>YASMEEN</td><td>13000</td><td>260</td><td>2600</td><td>6</td><td>375</td><td>16235</td><td>1591.2</td><td>121.7625</td><td>1712.9625</td><td>14522</td></tr><tr><td>19</td><td>119</td><td>NAEEMA</td><td>24000</td><td>480</td><td>4800</td><td>31</td><td>###################</td><td>32857</td><td>2937.6</td><td>0</td><td>2937.6</td><td>29919</td></tr><tr><td>20</td><td>120</td><td>NASEEMA</td><td>90000</td><td>1800</td><td>18000</td><td>20</td><td>###################</td><td>118454</td><td>11016</td><td>0</td><td>11016</td><td>107438</td></tr></tbody>
+</table>
+</div>
+</div>
+
+<div class="card reveal">
+<div class="eyebrow">Marketing assignment</div>
+<h3>Shan Foods — Positioning for Competitive Advantage</h3>
+<p><strong>Name:</strong> Shehnaz Akhtar &nbsp;•&nbsp; <strong>ID:</strong> IU09-0325-0098 &nbsp;•&nbsp; <strong>Program:</strong> BBA</p>
+<p><strong>Submitted To:</strong> Sir Abdullah khan &nbsp;•&nbsp; <strong>Subject:</strong> Principles of Marketing &nbsp;•&nbsp; <strong>Date:</strong> June 16, 2026</p>
+<div class="meta">
+<div><small>Brand</small><strong>Shan Foods (Shan Masala)</strong></div>
+<div><small>Topic</small><strong>Positioning for Competitive Advantage, Positioning Strategies & Positioning Errors</strong></div>
+<div><small>Questions</small><strong>5</strong></div>
+<div><small>Pages</small><strong>2–12</strong></div>
+</div>
+</div>
+</section>
+
+<section class="block" id="marketing">
+<div class="section-head reveal"><div><div class="eyebrow">Principles of Marketing</div><h2>Shan Foods analysis</h2><p class="sub">Click each question to expand the complete content from the corresponding pages.</p></div></div>
+
+<details class="reveal" open>
+<summary><span class="question">Question 1 — Product Position Analysis <span class="plus">+</span></span></summary>
+<div class="answer">
+<p><strong>Question:</strong> Explain the product position of your selected brand. How is the brand perceived by consumers relative to its competitors?</p>
+<p>Shan Foods is positioned as Pakistan’s most authentic and trusted spice mix brand that brings the true taste of traditional Pakistani and South Asian cuisine into every home. The brand has successfully created a unique identity in the food category by focusing on recipe authenticity, convenience, and international quality standards.</p>
+<p><strong>1. Overall product position:</strong></p>
+<ul><li>Authentic, region-specific spice blends (Biryani, Karahi, Nihari, etc.)</li><li>Ready to use masala mixes that save time without compromising taste</li><li>A brand that represents home cooking and cultural food heritage</li></ul>
+<p>The brand emphasizes traditional recipes, carefully measured spices, and consistent taste, which differentiates it from basic curry powders or loose spices. Its products include over 100 different recipe mixes, ranging from meat dishes to vegetarian options, all designed to deliver restaurant quality taste at home.</p>
+<div class="callout">Consumers perceive Shan not just as a masala brand, but as a guarantee of delicious, fail proof cooking.</div>
+<p><strong>2. Consumer perception:</strong> In the minds of consumers, Shan is associated with:</p>
+<ul><li><strong>Authenticity:</strong> Customers believe Shan recipes come from traditional kitchens and regional experts. Each package tells a story of origin.</li><li><strong>Consistency:</strong> Every time a consumer uses Shan Biryani mix, the taste is exactly the same. This reliability builds deep trust.</li><li><strong>Convenience:</strong> Shan eliminates the need to buy ten different spices separately. One packet does everything.</li><li><strong>International Standards:</strong> Shan is also popular among overseas Pakistanis because it is available globally and meets food safety standards.</li></ul>
+<p>As a result, the brand is highly popular among home cooks, working women, and expatriate Pakistanis who want authentic taste without spending hours in the kitchen.</p>
+<p><strong>3. Position relative to competitors:</strong></p>
+<div class="compare"><table><thead><tr><th>Competitor</th><th>Comparison with Shan</th><th>Position / perception</th></tr></thead><tbody>
+<tr><td>National Foods</td><td>Convenience focused, slightly milder taste</td><td>Less bold in flavor; more generic</td></tr>
+<tr><td>Mehran</td><td>Affordable, basic spice mixes</td><td>Lower price but also perceived as lower quality</td></tr>
+<tr><td>Lazica</td><td>Regional specialty, limited variety</td><td>Niche player, not a national competitor</td></tr>
+<tr><td>Local unbranded masalas</td><td>Cheap, inconsistent quality</td><td>No trust or quality assurance</td></tr>
+</tbody></table></div>
+<p>Shan is seen as the market leader in terms of taste authenticity and brand trust.</p>
+</div></details>
+
+<details class="reveal">
+<summary><span class="question">Question 2 — Competitive Advantage Analysis <span class="plus">+</span></span></summary>
+<div class="answer">
+<p><strong>Question:</strong> Identify and explain any two competitive advantages of the brand. Discuss whether these advantages are based on Product, Service, Channel, People, or Image.</p>
+<p>Shan Foods has developed strong competitive advantages that help it dominate Pakistan’s spice mix market. Two of its most significant advantages are based on Product and Image.</p>
+<p><strong>1. Product based competitive advantage:</strong> Shan’s primary competitive advantage lies in its extensive, authentic, and tested recipe library.</p>
+<p>Shan has invested decades in researching traditional recipes from different regions of Pakistan and South Asia. Each spice mix is developed by food scientists and chefs to ensure the perfect balance of flavors. Unlike competitors who offer generic masalas, Shan offers region specific products such as:</p>
+<ul><li>Sindhi Biryani Mix</li><li>Lahore Karahi Mix</li><li>Peshawari Chaplin Kebab Mix</li><li>Multani Sohan Halwa Mix</li></ul>
+<p>This level of specialization is not easily replicated by competitors. Furthermore, Shan uses high quality spices with no artificial colors or harmful preservatives in many of its products.</p>
+<p><strong>Why it is a Competitive Advantage:</strong></p>
+<ul><li>Customers trust Shan to deliver authentic regional tastes that other brands cannot copy.</li><li>The variety (over 100 products) covers almost every Pakistani dish, making Shan a one stop solution.</li><li>Competitors like National Foods have fewer product variants and less regional specificity.</li></ul>
+<p><strong>2. Image based competitive advantage:</strong> Another key strength of Shan is its brand image of trust, tradition, and international acceptance. Shan has built a powerful image through decades of consistent marketing. Its iconic green and red packaging, the smiling chef logo, and the tagline “Khaykin Bhi aur Chalayan Bhi” (Eat and also serve others) are deeply embedded in consumer memory. Shan is also one of the few Pakistani food brands available in over 100 countries, which reinforces an image of quality and reliability.</p>
+<p><strong>Why it is a Competitive Advantage:</strong></p>
+<ul><li>The strong image reduces perceived risk. A new cook will choose Shan because it is a known, trusted name.</li><li>International availability makes Shan a source of pride for Pakistanis abroad, creating emotional loyalty.</li><li>Competitors like Mehran or local brands lack this premium, global brand image.</li></ul>
+</div></details>
+
+<details class="reveal">
+<summary><span class="question">Question 3 — Positioning Strategy <span class="plus">+</span></span></summary>
+<div class="answer">
+<p><strong>Question:</strong> Identify the primary positioning strategy used by the brand and justify your answer with examples. Possible strategies include: Product Features & Benefits Positioning, Price–Quality Positioning, Competitive Positioning, User Positioning, Corporate Brand Positioning, Leveraging Existing Brand Strategy.</p>
+<p><strong>Primary Positioning Strategy of Shan Foods: Product Features & Benefits Positioning</strong></p>
+<p>Shan primarily positions itself by emphasizing the unique features and functional benefits of its spice mixes.</p>
+<p><strong>1. Explanation of the strategy:</strong> Product Features & Benefits Positioning means the brand highlights specific attributes of the product (features) and translates them into advantages for the customer (benefits). Shan does this masterfully:</p>
+<ul><li><strong>Feature:</strong> Recipe developed from traditional regional experts. <strong>Benefit:</strong> Authentic taste that matches homemade or restaurant quality.</li><li><strong>Feature:</strong> Pre measured blend of multiple spices. <strong>Benefit:</strong> Convenience and consistency. No need to buy separate spices or guess quantities.</li><li><strong>Feature:</strong> No added colors or harmful preservatives. <strong>Benefit:</strong> Safe and healthy cooking for family</li></ul>
+<p><strong>2. Justification with examples:</strong></p>
+<p><strong>Example 1 – Biryani Mix Packaging:</strong> On the back of every Shan Biryani box, there is a clear explanation: “Contains red chili, cumin, coriander, cardamom, cloves, and 12 other spices.” Then it states the benefit: “Gives authentic Sindhi biryani taste in 30 minutes.” This is direct product features and benefits communication.</p>
+<p><strong>Example 2 – TV Commercials:</strong> Shan advertisements often show a home cook struggling to get the perfect taste, then using Shan masala and succeeding. The voiceover says: “Shan ka secret? 15 masala ka perfect blend.” (Shan’s secret? Perfect blend of 15 spices.) No mention of price discounts or competitions. Only the product feature and the benefit of great taste.</p>
+<p><strong>Example 3 – Social Media Campaigns:</strong> Shan regularly posts recipe videos on Instagram and YouTube. Each video highlights a specific product, shows the ingredients list (feature), and demonstrates how easy it is to cook a delicious meal (benefit).</p>
+<p><strong>3. Why this strategy works for Shan:</strong></p>
+<ul><li>It differentiates Shan from generic loose spices that have no quality guarantee.</li><li>It builds trust because customers can see exactly what they are buying.</li><li>It appeals to both experienced cooks (who value authenticity) and beginners (who value convenience).</li></ul>
+<p><strong>Advertisement/Promotional Evidence:</strong> A clear example of this positioning strategy can be seen in Shan’s digital campaign “Shan Kay Saath Khana Banega Aasan” (Cooking becomes easy with Shan). On Shan’s official Facebook page and YouTube channel, short videos show the exact spice mix being opened, poured into a pan, and the final dish being served. The caption always includes both the feature (special blend of 12 spices) and the benefit (restaurant taste at home).</p>
+</div></details>
+
+<details class="reveal">
+<summary><span class="question">Question 4 — Principles of Effective Positioning <span class="plus">+</span></span></summary>
+<div class="answer">
+<p><strong>Question:</strong> Evaluate the brand using any two of the following principles: Relevance, Clarity, Distinctiveness, Coherence, Commitment, Patience, Courage. Provide practical examples to support your evaluation.</p>
+<p>Shan Foods can be effectively evaluated using the principles of Relevance and Coherence, as these two principles strongly explain the brand’s enduring success.</p>
+<p><strong>1. Relevance:</strong> Relevance means how well a brand’s positioning aligns with the needs, preferences, and expectations of its target market. A brand is effective when it offers value that customers actually care about.</p>
+<p>Shan demonstrates strong relevance because it understands the priorities of Pakistani consumers:</p>
+<ul><li><strong>Taste is the highest priority:</strong> Pakistani home cooks care more about authentic taste than price. Shan delivers authentic regional flavors.</li><li><strong>Convenience matters:</strong> Working women and busy mothers need quick cooking solutions. Shan’s readymade mixes save time.</li><li><strong>Trust in tradition:</strong> Consumers trust brands that respect cultural cooking heritage. Shan’s recipes come from traditional kitchens.</li></ul>
+<p><strong>Practical Examples:</strong></p>
+<ul><li><strong>Ramadan Campaigns:</strong> During Ramadan, Shan runs special campaigns for Iftar dishes (samosas, pakoras, chaat). These are highly relevant because families cook more during this month and need easy solutions.</li><li><strong>Overseas Pakistani Focus:</strong> Shan is available in Walmart, Carrefour, and Amazon in the UK, USA, and Middle East. For Pakistanis living abroad who crave home food, Shan is the most relevant brand because it provides authentic taste with locally available ingredients.</li></ul>
+<p>This shows that Shan’s products are highly relevant because they directly match customer cooking habits, cultural preferences, and lifestyle needs.</p>
+<p><strong>2. Coherence:</strong> Coherence means all aspects of the brand’s marketing mix (product, price, place, promotion) work together to deliver the same consistent message. A brand is effective when there is no contradiction between what it says and what it does.</p>
+<p>Shan demonstrates strong coherence because every element supports the same positioning of “authentic, convenient, trustworthy spice mixes.”</p>
+<p><strong>Practical Examples:</strong></p>
+<ul><li><strong>Product matches promise:</strong> Shan claims authentic recipes, and indeed each product has a distinct regional taste.</li><li><strong>Packaging matches message:</strong> The green and red packaging with traditional motifs reinforces the idea of heritage and freshness.</li><li><strong>Price matches positioning:</strong> Shan is priced higher than National Foods or Mehran, which is coherent with its premium authentic image. If Shan were cheap, customers would doubt the quality.</li><li><strong>Distribution matches brand:</strong> Shan is available everywhere – from small Kiyana shops to high end supermarkets. This coherence ensures that even rural customers access the same authentic product.</li><li><strong>Advertising matches product:</strong> Shan ads never show western dishes. They always show biryani, karahi, nihari – traditional Pakistani food. This coherence strengthens the brand’s credibility.</li></ul>
+<p>Because of this coherence, customers never feel confused about what Shan stands for. The brand’s message is consistent across all touchpoints.</p>
+</div></details>
+
+<details class="reveal">
+<summary><span class="question">Question 5 — Positioning Errors <span class="plus">+</span></span></summary>
+<div class="answer">
+<p><strong>Question:</strong> Analyze whether the brand faces any of the following positioning errors or risks: Under positioning, Over positioning, Confused Positioning, Doubtful Positioning, Irrelevant Positioning. Explain which error is most relevant (or potentially relevant) to the brand and provide justification.</p>
+<p>Shan Foods generally has a very strong and clear positioning. However, it faces a potential risk of Over positioning, which is the most relevant positioning error for the brand.</p>
+<p><strong>Error: Over positioning</strong></p>
+<p>Over positioning occurs when a brand is perceived too narrowly by consumers, limiting its appeal to a specific segment. For Shan, the risk is that it is seen only as a masala for heavy, meat based Pakistani dishes, which might alienate health-conscious consumers or those looking for lighter cooking options.</p>
+<p><strong>Why over positioning is relevant to Shan:</strong> Shan is overwhelmingly known for products like Biryani Masala, Karahi Masala, Nihari Masala, and Chaplin Kebab Masala. These are rich, spicy, and often high in oil and salt. While this is a strength for traditional cooking, it creates limitation.</p>
+<p><strong>1. Perception as unhealthy or heavy:</strong> Many health-conscious consumers, especially younger generations and fitness enthusiasts, believe that Shan masalas are too spicy, too salty, or not suitable for daily cooking. They perceive Shan as a “special occasion” brand rather than an everyday brand.</p>
+<p><strong>Example:</strong> A person trying to eat low sodium or low oil meals may avoid Shan entirely, thinking all products are equally heavy. In reality, Shan also has lighter products like Chaat Masala, Chole Masala, and Fish Fry Masala, but these are not as famous.</p>
+<p><strong>2. Limited appeal for non-meat dishes:</strong> Shan has many vegetarian and poultry products, but consumers still associate the brand strongly with beef and mutton dishes. This narrow perception can hurt sales to vegetarians or people who prefer chicken and vegetables.</p>
+<p><strong>Example:</strong> A vegetarian customer looking for a good Chana Masala might not even check Shan because they think “Shan is for biryani and karahi only.”</p>
+<p><strong>3. Generational gap:</strong> Younger Pakistanis who grew up abroad or prefer fusion cooking (e.g., pasta, wraps, grilled chicken) may find Shan irrelevant because they see it as “traditional” and “heavy.” This is a classic over positioning problem – the brand is so strongly tied to one cooking style that it misses new trends.</p>
+<ul><li><strong>Under positioning:</strong> No, consumers know exactly what Shan is.</li><li><strong>Confused positioning:</strong> No, Shan has a very consistent message.</li><li><strong>Doubtful positioning:</strong> No, customers have no reason to doubt Shan’s taste claims.</li><li><strong>Irrelevant positioning:</strong> No, authentic taste is highly relevant to Pakistani consumers.</li></ul>
+<div class="callout"><strong>Conclusion:</strong> In conclusion, Shan’s main positioning risk is over positioning, as it is strongly perceived as a brand for heavy, meat based, traditional Pakistani dishes. While this has made it a leader in that category, it may limit its appeal to health-conscious consumers, vegetarians, and younger generations looking for lighter or fusion options. Shan can reduce this risk by promoting its lighter products (e.g., Fish Masala, Chole Masala, Chaat Masala) more aggressively and by introducing lower sodium or “everyday light” variants under a sub brand.</div>
+</div></details>
+</section>
+
+<section class="block" id="source">
+<div class="section-head reveal"><div><div class="eyebrow">Source preservation</div><h2>Complete PDF text</h2><p class="sub">Search the full extracted content below. This section is included so the portfolio does not silently omit source material.</p></div></div>
+<input class="search" id="search" type="search" placeholder="Search the PDF text…">
+<div id="pdf-content"><section class="pdf-page"><div class="page-label">PDF PAGE 1</div><pre>S.NO
+EMPLOYE 
+ID 
+EMPLOYE 
+NAMES DESIGNATION
+BASIC 
+SALARY
+DEARANCE 
+ALLOWANCE(5%)
+HOUSE RENT 
+ALLOWANCE           
+20%
+OVER 
+TIME 
+HOURS OVER TIME SALARY GROSS SALARY
+PROVIDENT 
+FUND 
+EMPLOYEE STATE 
+ENSURANCE TOTAL DEDICATION NET SALARY
+1 101 SANA STAF 15000 750 3000 10 ################### 19471 1890 146.0336538 2036.033654 17435
+2 102 SHEHNAZ STAF 18000 360 3600 20 ################### 23691 2203.2 0 2203.2 21488
+3 103 SHEERAZ STAF 30000 600 6000 5 ################### 37321 3672 0 3672 33649
+4 104 SANAIA STAF 40000 800 8000 7 ################### 50146 4896 0 4896 45250
+5 105 NOREEN STAF 50000 1000 10000 8 ################### 62923 6120 0 6120 56803
+6 106 SHAREEKA STAF 20000 400 4000 10 ################### 25362 2448 0 2448 22914
+7 107 ALI STAF 12000 240 2400 3 ################### 14813 1468.8 111.0980769 1579.898077 13233
+8 108 SUHANA STAF 5000 100 1000 7 ################### 6268 612 47.01201923 659.0120192 5609
+9 109 MEHNAZ STAF 4000 80 800 9 ################### 5053 489.6 37.89807692 527.4980769 4526
+10 110 OMAIMA STAF 23000 460 4600 21 ################### 30382 2815.2 0 2815.2 27567
+11 111 HIRA STAF 40000 800 8000 9 ################### 50531 4896 0 4896 45635
+12 112 TAHIR STAF 60000 1200 12000 5 ################### 74642 7344 0 7344 67298
+13 113 TASLEEMA STAF 70000 1400 14000 4 ################### 86746 8568 0 8568 78178
+14 114 ADINA STAF 80000 1600 16000 2 ################### 98369 9792 0 9792 88577
+15 115 SHOAB STAF 90000 1800 18000 8 ################### 113262 11016 0 11016 102246
+16 116 PARVEEN STAF 14000 280 2800 9 ################### 17686 1713.6 132.6432692 1846.243269 15840
+17 117 BUSHRA STAF 11000 220 2200 12 ################### 14055 1346.4 105.4096154 1451.809615 12603
+18 118 YASMEEN STAF 13000 260 2600 6 375 16235 1591.2 121.7625 1712.9625 14522
+19 119 NAEEMA STAF 24000 480 4800 31 ################### 32857 2937.6 0 2937.6 29919
+20 120 NASEEMA STAF 90000 1800 18000 20 ################### 118454 11016 0 11016 107438
+OPEN     ENDED   LAB (PROJECT)    ( SALARY SHEET)</pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 2</div><pre>1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ASSIGNMENT OF MARKETING 
+ 
+Topic: Positioning for Competitive Advantage, Positioning Strategies &amp; 
+Positioning Errors 
+ 
+Brand: Shan Foods (Shan Masala) 
+ 
+ 
+ 
+ 
+ 
+ 
+Name:  Shehnaz Akhtar 
+ID: IU09-0325-0098 
+Program:  BBA 
+Submitted To : Sir Abdullah khan 
+Subject: Principles of Marketing 
+Date of Submission : June 16, 2026 
+ 
+ 
+ 
+</pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 3</div><pre>2 
+ 
+ 
+Question No. 1 – Product Position Analysis  
+Explain the product position of your selected brand. How is the brand 
+perceived by consumers relative to its competitors?  
+Shan Foods is positioned as Pakistan’s most authentic and trusted spice mix brand that brings the true 
+taste of traditional Pakistani and South Asian cuisine into every home. The brand has successfully created a 
+unique identity in the food category by focusing on recipe authenticity, convenience, and international 
+quality standards. 
+1. Overall product position:  
+Shan’s product position can be understood as: 
+• Authentic, region -specific  spice blends (Biryani, Karahi, Nihari, etc.)  
+• Ready to use masala mixes that save time without compromising taste  
+• A brand that represents home cooking and cultural food heritage  
+ 
+The brand emphasizes traditional recipes, carefully measured spices, and consistent taste, which 
+differentiates it from basic curry powders or loose spices. Its products include over 100 different recipe 
+mixes, ranging from meat dishes to vegetarian options, all designed to deliver restaurant quality taste at 
+home. 
+Consumers perceive Shan not just as a masala brand, but as a guarantee of delicious, fail proof cooking. 
+2. Consumer perception:  
+In the minds of consumers, Shan is associated with: 
+• Authenticity: Customers believe Shan recipes come from traditional kitchens and 
+regional experts. Each package tells a story of origin.  
+• Consistency: Every time a consumer uses Shan Biryani mix, the taste is exactly the 
+same. This reliability builds deep trust.  
+• Convenience: Shan eliminates the need to buy ten different spices separately. One 
+packet does everything.  
+ </pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 4</div><pre>3 
+ 
+• International Standards: Shan is also popular among overseas Pakistanis because it is 
+available globally and meets food safety standards.  
+ 
+As a result, the brand is highly popular among home cooks, working women, and expatriate Pakistanis who 
+want authentic taste without spending hours in the kitchen. 
+ 
+3. Position relative to competitors:  
+When compared with its major competitors, Shan occupies a premium and authentic position: 
+• Brand Position in Market Comparison with Shan 
+• National Foods Convenience focused, slightly milder taste Less bold in flavor; more generic 
+• Mehran Affordable, basic spice mixes Lower price but also perceived as lower quality 
+• Lazica Regional specialty, limited variety Niche player, not a national competitor 
+• Local unbranded masalas Cheap, inconsistent quality No trust or quality assurance 
+• Shan is seen as the market leader in terms of taste authenticity and brand trust. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 5</div><pre>4 
+ 
+ 
+Question No. 2 – Competitive Advantage Analysis  
+Identify and explain any two competitive advantages of the brand. Discuss whether 
+these advantages are based on Product, Service, Channel, People, or Image. 
+Shan Foods has developed strong competitive advantages that help it dominate Pakistan’s spice mix 
+market. Two of its most significant advantages are based on Product and Image. 
+ 
+1. Product based competitive advantage:  
+Shan’s primary competitive advantage lies in its extensive, authentic, and tested recipe library. 
+Shan has invested decades in researching traditional recipes from different regions of Pakistan and South 
+Asia. Each spice mix is developed by food scientists and chefs to ensure the perfect balance of flavors. 
+Unlike competitors who offer generic masalas, Shan offers region specific products such as: 
+• Sindhi Biryani Mix  
+• Lahore Karahi Mix  
+• Peshawari Chaplin  Kebab Mix  
+• Multani Sohan Halwa Mix  
+This level of specialization is not easily replicated by competitors. Furthermore, Shan uses high quality 
+spices with no artificial colors or harmful preservatives in many of its products. 
+Why it is a Competitive Advantage: 
+• Customers trust Shan to deliver authentic regional tastes that other brands cannot copy.  
+• The variety (over 100 products) covers almost every Pakistani dish, making Shan a one 
+stop solution.  
+• Competitors like National Foods have fewer product variants and less regional 
+specificity.  
+ 
+ 
+ 
+ </pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 6</div><pre>5 
+ 
+2. Image based competitive advantage:  
+Another key strength of Shan is its brand image of trust, tradition, and international acceptance. Shan has 
+built a powerful image through decades of consistent marketing. Its iconic green and red packaging, the 
+smiling chef logo, and the tagline “Khaykin Bhi aur Chalayan Bhi” (Eat and also serve others) are deeply 
+embedded in consumer  
+ 
+memory. Shan is also one of the few Pakistani food brands available in over 100 countries, which reinforces 
+an image of quality and reliability. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Why it is a Competitive Advantage:  
+• The strong image reduces perceived risk. A new cook will choose Shan because it is a 
+known, trusted name.  
+• International availability makes Shan a source of pride for Pakistanis abroad, creating 
+emotional loyalty.  
+• Competitors like Mehran or local brands lack this premium, global brand image.  
+ 
+ 
+ 
+ 
+ 
+</pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 7</div><pre>6 
+ 
+Question No. 3 – Positioning Strategy  
+Identify the primary positioning strategy used by the brand and justify your 
+answer with examples. Possible strategies include: Product Features &amp; 
+Benefits Positioning, Price –Quality Positioning, Competitive Positioning, User 
+Positioning, Corporate Brand P ositioning, Leveraging Existing Brand 
+Strategy.  
+Primary Positioning Strategy of Shan Foods:  
+Product Features &amp; Benefits Positioning : 
+Shan primarily positions itself by emphasizing the unique features and functional benefits of its spice mixes. 
+1. Explanation of the strategy:  
+Product Features &amp; Benefits Positioning means the brand highlights specific attributes of the product 
+(features) and translates them into advantages for the customer (benefits). Shan does this masterfully: 
+• Feature: Recipe developed from traditional regional experts.  
+• Benefit: Authentic taste that matches homemade or restaurant quality.  
+• Feature: Pre measured blend of multiple spices.  
+• Benefit: Convenience and consistency. No need to buy separate spices or guess 
+quantities.  
+• Feature: No added colors or harmful preservatives.  
+• Benefit: Safe and healthy cooking for family  
+2. Justification with examples:  
+Example 1 – Biryani Mix Packaging: On the back of every Shan Biryani box, there is a clear explanation: 
+“Contains red chili, cumin, coriander, cardamom, cloves, and 12 other spices.” Then it states the benefit: 
+“Gives authentic Sindhi biryani taste in 30 minutes.” This is direct product features and benefits 
+communication. 
+Example 2 – TV Commercials: Shan advertisements often show a home cook struggling to get the 
+perfect taste, then using Shan masala and succeeding. The voiceover says: “Shan ka secret? 15 masala ka 
+perfect blend.” (Shan’s secret? Perfect blend of 15 spices.) No mention of price discounts or competitions. 
+Only the product feature and the benefit of great taste. </pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 8</div><pre>7 
+ 
+ 
+Example 3 – Social Media Campaigns: Shan regularly posts recipe videos on Instagram and YouTube. 
+Each video highlights a specific product, shows the ingredients list (feature), and demonstrates how easy it is 
+to cook a delicious meal (benefit). 
+ 
+3. Why this strategy works for Shan:  
+• It differentiates Shan from generic loose spices that have no quality guarantee. 
+• It builds trust because customers can see exactly what they are buying. 
+• It appeals to both experienced cooks (who value authenticity) and beginners (who value 
+convenience). 
+ 
+Advertisement/Promotional Evidence:  
+A clear example of this positioning strategy can be seen in Shan’s digital campaign “Shan Kay Saath Khana 
+Banega Aasan” (Cooking becomes easy with Shan). On Shan’s official Facebook page and YouTube 
+channel, short videos show the exact spice mix being opened, poured into a pan, and the final dish being 
+served. The caption always includes both the feature (special blend of 12 spices) and the benefit (restaurant 
+taste at home). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 9</div><pre>8 
+ 
+ 
+Question No. 4 – Principles of Effective Positioning  
+Evaluate the brand using any two of the following principles: Relevance, 
+Clarity, Distinctiveness, Coherence, Commitment, Patience, Courage. Provide 
+practical examples to support your evaluation.  
+Shan Foods can be effectively evaluated using the principles of Relevance and Coherence, as these 
+two principles strongly explain the brand’s enduring success. 
+1. Relevance:  
+Relevance means how well a brand’s positioning aligns with the needs, preferences, and expectations of its 
+target market. A brand is effective when it offers value that customers actually care about. 
+Shan demonstrates strong relevance because it understands the priorities of Pakistani consumers: 
+• Taste is the highest priority: Pakistani home cooks care more about authentic taste than 
+price. Shan delivers authentic regional flavors.  
+• Convenience matters: Working women and busy mothers need quick cooking solutions. 
+Shan’s readymade  mixes save time.  
+• Trust in tradition: Consumers trust brands that respect cultural cooking 
+heritage. Shan’s recipes come from traditional kitchens.  
+ 
+ 
+ 
+Practical Examples:  
+• Ramadan Campaigns: During Ramadan, Shan runs special campaigns for Iftar dishes 
+(samosas, pakoras, chaat). These are highly relevant because families cook more during 
+this month and need easy solutions.  
+• Overseas Pakistani Focus: Shan is available in Walmart, Carrefour, and Amazon in the 
+UK, USA, and Middle East. For Pakistanis living abroad who crave home food, Shan is 
+the most relevant brand because it provides authentic taste with locally available 
+ingr edients.  </pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 10</div><pre>9 
+ 
+ 
+This shows that Shan’s products are highly relevant because they directly match customer cooking habits, 
+cultural preferences, and lifestyle needs 
+2. Coherence:  
+Coherence means all aspects of the brand’s marketing mix (product, price, place, promotion) work together 
+to deliver the same consistent message. A brand is effective when there is no contradiction between what it 
+says and what it does. 
+Shan demonstrates strong coherence because every element supports the same positioning of “authentic, 
+convenient, trustworthy spice mixes.” 
+Practical Examples:  
+• Product matches promise: Shan claims authentic recipes, and indeed each product has a 
+distinct regional taste.  
+• Packaging matches message: The green and red packaging with traditional motifs 
+reinforces the idea of heritage and freshness.  
+• Price matches positioning: Shan is priced higher than National Foods or Mehran, which 
+is coherent with its premium authentic image. If Shan were cheap, customers would 
+doubt the quality.  
+• Distribution matches brand: Shan is available everywhere – from small Kiyana  shops to 
+high end supermarkets. This coherence ensures that even rural customers access the 
+same authentic product.  
+• Advertising matches product: Shan ads never show western dishes. They always show 
+biryani, karahi, nihari – traditional Pakistani food. This coherence strengthens the 
+brand’s credibility.  
+ 
+Because of this coherence, customers never feel confused about what Shan stands for. The brand’s message 
+is consistent across all touchpoints. 
+ 
+ 
+ </pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 11</div><pre>10 
+ 
+ 
+Question No. 5 – Positioning Errors  
+Analyze whether the brand faces any of the following positioning errors or 
+risks: Under positioning, Over positioning, Confused Positioning, Doubtful 
+Positioning, Irrelevant Positioning. Explain which error is most relevant (or 
+potentially relevant) to the  brand and provide justification.  
+Shan Foods generally has a very strong and clear positioning. However, it faces a potential risk of 
+Over positioning, which is the most relevant positioning error for the brand. 
+ 
+Error: Over positioning  
+Over positioning occurs when a brand is perceived too narrowly by consumers, limiting its appeal to a 
+specific segment. For Shan, the risk is that it is seen only as a masala for heavy, meat based Pakistani dishes, 
+which might alienate health-conscious consumers or those looking for lighter cooking options. 
+Why over positioning is relevant to Shan:  
+Shan is overwhelmingly known for products like Biryani Masala, Karahi Masala, Nihari Masala, and 
+Chaplin Kebab Masala. These are rich, spicy, and often high in oil and salt. While this is a strength for 
+traditional cooking, it creates limitation 
+1. Perception as unhealthy or heavy:  
+Many health-conscious consumers, especially younger generations and fitness enthusiasts, 
+believe that Shan masalas are too spicy, too salty, or not suitable for daily cooking. They 
+perceive Shan as a “special occasion” brand rather than an everyday brand 
+Example:   
+A person trying to eat low sodium or low oil meals may avoid Shan entirely, thinking all 
+products are equally heavy. In reality, Shan also has lighter products like Chaat Masala, 
+Chole Masala, and Fish Fry Masala, but these are not as famous. 
+ 
+ </pre></section><section class="pdf-page"><div class="page-label">PDF PAGE 12</div><pre>11 
+ 
+ 
+2. Limited appeal for non -meat  dishes:  
+Shan has many vegetarian and poultry products, but consumers still associate the brand 
+strongly with beef and mutton dishes. This narrow perception can hurt sales to vegetarians or 
+people who prefer chicken and vegetables. 
+Example:  A vegetarian customer looking for a good Chana Masala might not even check 
+Shan because they think “Shan is for biryani and karahi only.” 
+3. Generational gap:  
+Younger Pakistanis who grew up abroad or prefer fusion cooking (e.g., pasta, wraps, grilled 
+chicken) may find Shan irrelevant because they see it as “traditional” and “heavy.” This is a 
+classic over positioning problem – the brand is so strongly tied to one cooking style that it 
+misses new trends. 
+• Under positioning: No, consumers know exactly what Shan is.  
+• Confused positioning: No, Shan has a very consistent message.  
+• Doubtful positioning: No, customers have no reason to doubt Shan’s taste 
+claims.  
+• Irrelevant positioning: No, authentic taste is highly relevant to Pakistani 
+consumers.  
+Conclusion:  
+In conclusion, Shan’s main positioning risk is over positioning, as it is strongly perceived as 
+a brand for heavy, meat based, traditional Pakistani dishes. While this has made it a leader in 
+that category, it may limit its appeal to health-conscious consumers, vegetarians, and 
+younger generations looking for lighter or fusion options. Shan can reduce this risk by 
+promoting its lighter products (e.g., Fish Masala, Chole Masala, Chaat Masala) more 
+aggressively and by introducing lower sodium or “everyday light” variants under a sub 
+brand. </pre></section></div>
+</section>
+
+<footer>
+<strong>Anaya's Portfolio</strong><br>
+Built as a single self-contained HTML file from the supplied 12-page PDF. No external libraries or assets are required.
+</footer>
+</main>
+<button id="topBtn" aria-label="Back to top">↑</button>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const topBtn=document.getElementById('topBtn');
+window.addEventListener('scroll',()=>{topBtn.style.display=scrollY>500?'block':'none'});
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+const search=document.getElementById('search');
+const pages=[...document.querySelectorAll('.pdf-page')];
+search.addEventListener('input',()=>{
+  const q=search.value.trim().toLowerCase();
+  pages.forEach(p=>p.style.display=(!q || p.innerText.toLowerCase().includes(q))?'block':'none');
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{
+  const target=document.querySelector(a.getAttribute('href'));
+  if(target) setTimeout(()=>target.classList.add('visible'),100);
+}));
+</script>
+</body>
+</html>
